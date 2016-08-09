@@ -19,6 +19,7 @@ type User struct {
 	Username string
 	Key      string
 	Sudo     bool
+	Shell    string
 }
 
 func RunOrDie(c string, args ...string) {
@@ -65,7 +66,7 @@ func AddUser(user User) {
 		return
 	}
 
-	Run("adduser", "--gecos", `""`, "--disabled-password", user.Username)
+	Run("adduser", "--gecos", `""`, "--disabled-password", "--shell", user.Shell, user.Username)
 
 	if user.Sudo {
 		Run("usermod", "--append", "--groups", "sudo", user.Username)
