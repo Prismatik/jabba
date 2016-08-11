@@ -13,6 +13,7 @@ type File struct {
 	Path     string
 	Template string
 	Perm     os.FileMode
+	Vars     map[string]string
 }
 
 type User struct {
@@ -53,7 +54,7 @@ func WriteFile(file File) {
 	if testing {
 		out = os.Stdout
 	}
-	err = tmpl.Execute(out, nil)
+	err = tmpl.Execute(out, file.Vars)
 	if err != nil {
 		log.Fatal(err)
 	}
