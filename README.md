@@ -50,3 +50,7 @@ All files, data etc is configured in Go templates. This is nice because:
 1. It results in them getting compiled into the built binary
 
 The nice thing about #2 is that once this is built into an executable, it can be shipped on its own without the need for any additional source or configuration files. Makes it much easier to SCP about the place.
+
+## Example
+
+You can see it in action here: https://github.com/Prismatik/config
