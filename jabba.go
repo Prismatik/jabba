@@ -84,3 +84,11 @@ func AddUser(user User) {
 		Perm:     0644,
 	})
 }
+
+func DistroString() (distro string) {
+	thistro, err := exec.Command("lsb_release", "-cs").Output()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return string(thistro)
+}
